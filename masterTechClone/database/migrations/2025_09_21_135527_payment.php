@@ -1,0 +1,38 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('payment', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('sale_id'); // reference to sale table
+            $table->date('payment_date'); // payment date
+            $table->decimal('amount', 15, 2); // payment amount
+            $table->enum('payment_type', ['cash', 'card', 'bank_transfer', 'other'])->default('cash'); // method
+            $table->string('note')->nullable(); // optional note
+            $table->timestamps();
+
+            // Foreign key
+            $table->foreign('sale_id')
+                  ->references('id')
+                  ->on('sale')
+                  ->onDelete('cascade'); // delete payment if sale is deleted
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('payment');
+    }
+};
