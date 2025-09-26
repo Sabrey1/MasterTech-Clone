@@ -28,11 +28,17 @@ Route::get('/product/create',function(){
 
 
 // Category
-Route::get('/category',[productCategoryController::class,'index'])->name('product');
+Route::get('/category',[productCategoryController::class,'index'])->name('productCategory');
 //create
-Route::get('/category/create',function(){
-    return view('Admin.Category.CreateCategory');
-})->name('productCategoryCreate');
+Route::get('/category/create', [productCategoryController::class,'create'])->name('productCategory.create');
+//delete
+Route::get('/category/{id}',[productCategoryController::class,'delete'])->name('productCategory.delete');
+//edit
+Route::get('/category/edit/{id}',[productCategoryController::class,'edit'])->name('productCategory.edit');
+//store
+Route::post('/category/store',[productCategoryController::class,'store'])->name('productCategory.store');
+//update
+Route::post('/category/update/{id}',[productCategoryController::class,'update'])->name('productCategory.update');
 
 // customer
 Route::get('/customer',function(){

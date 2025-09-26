@@ -40,13 +40,11 @@
                                     @else
                                         <span>No Image</span>
                                     @endif</td>
-                                <td></td>
-                                <td>$</td>
-                                <td></td>
-                                <td></td>
+                                <td>{{$category->name}}</td>
+                                <td>{{$category->description}}</td>
                                 <td>
-                                    <a href="#" class="btn btn-sm btn-outline-primary mr-1">Edit</a>
-                                    <a href="#" onclick="return confirm('Are you sure delete?')" class="btn btn-sm btn-outline-danger">Delete</a>
+                                    <a href="{{route('productCategory.edit',$category->id)}}" class="btn btn-sm btn-outline-primary mr-1">Edit</a>
+                                    <a href="{{route('productCategory.delete',$category->id)}}" onclick="return confirm('Are you sure delete?')" class="btn btn-sm btn-outline-danger">Delete</a>
                                 </td>
                               </tr>
                               @endforeach
