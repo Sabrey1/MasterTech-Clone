@@ -50,6 +50,40 @@ class productCategoryController extends Controller
 
 
     public function delete(string $id){
+       $categories = ProductCategory::find($id);
 
+       if($categories == null){
+           return redirect()->back();
+       }
+        $categories->delete();
+
+        //redirect
+        return redirect()->back()->with('success','Category deleted successfully');
     }
+
+    public function update(string $id, Request $request)
+{
+    $validator = Validator::make($request->all(), [
+        'name' => 'required',
+        'description' => 'required'
+    ]);
+
+    if ($validator->fails()) {
+        return redirect()->back()
+            ->withErrors($validator)
+            ->withInput();
+    }
+
+    $category = ProductCategory::findOrFail($id);
+    $category->name = $request->input('name');
+    $category->description = $request->input('description');
+    $category->image = $request->file('image')
+        ? $request->file('image')->store('categories', 'public')
+        : $category->image; // keep old image if not uploaded
+    $category->save();
+
+     return redirect()->route('productCategory')
+        ->with('success', 'Category updated successfully');
+}
+
 }

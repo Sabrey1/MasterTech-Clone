@@ -1,6 +1,6 @@
 :root{
     scroll-behavior: smooth;
-    
+
 }
 .head{
     background-color: blueviolet;
@@ -90,9 +90,9 @@ span{
     flex-direction: column;
 
 }
-.sub-categories ul li{
+/* .sub-categories ul li{
     margin-left: -30px;
-}
+} */
 
 .menu ul li:hover .sub-categories{
     display: block;

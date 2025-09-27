@@ -25,7 +25,7 @@
                         <label for="description">description</label>
                         <textarea class="form-control" name="description" id="description" rows="2">{{$categories->description}}</textarea>
                       </div>
-                      <button type="submit" class="btn btn-success mr-2">Save</button>
+                      <button type="submit"  class="btn btn-success mr-2">Update</button>
                       <button type="reset" class="btn btn-light">Cancel</button>
                     </form>
                   </div>

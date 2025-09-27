@@ -26,12 +26,15 @@
                                 <th>Category</th>
                                 <th>Price</th>
                                 <th>Stock</th>
-                                <th>Description</th>
+                                <th>Status</th>
+
                                 <th>Action</th>
                               </tr>
                             </thead>
                             <tbody>
-                              {{-- @foreach ($products as $product)
+                              @foreach ($products as $product)
+
+
                                 <tr>
                                     <td>{{ $product->id }}</td>
                                     <td> @if ($product->image)
@@ -43,15 +46,17 @@
                                         <span>No Image</span>
                                     @endif</td>
                                 <td></td>
-                                <td>$</td>
+                                <td></td>
+
+                                <td></td>
                                 <td></td>
                                 <td></td>
                                 <td>
-                                    <a href="{{route('products.edit',$product->id)}}" class="btn btn-sm btn-outline-primary mr-1">Edit</a>
-                                    <a href="{{route('products.delete',$product->id)}}" onclick="return confirm('Are you sure delete?')" class="btn btn-sm btn-outline-danger">Delete</a>
+                                    <a href="{{route('product.edit',$product->id)}}" class="btn btn-sm btn-outline-primary mr-1">Edit</a>
+                                    <a href="{{route('product.delete',$product->id)}}" onclick="return confirm('Are you sure delete?')" class="btn btn-sm btn-outline-danger">Delete</a>
                                 </td>
                               </tr>
-                              @endforeach --}}
+                              @endforeach
 
                             </tbody>
                           </table>

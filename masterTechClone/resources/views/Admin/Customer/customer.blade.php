@@ -31,32 +31,34 @@
                               </tr>
                             </thead>
                             <tbody>
-                              {{-- @foreach ($products as $product)
+
+                              @foreach ($customers as $customer)
+
                                 <tr>
-                                    <td>{{ $product->id }}</td>
-                                    <td> @if ($product->image)
-                                        <img src="{{ asset('storage/' . $product->image)}}"
-                                            alt="{{ $product->name }}"
+                                    <td>{{ $customer->id }}</td>
+                                    <td> @if ($customer->image)
+                                        <img src="{{ asset('storage/' . $customer->image)}}"
+                                            alt="{{ $customer->name }}"
                                             width="60" height="60"
                                             style="object-fit: cover; border-radius: 8px;">
                                     @else
                                         <span>No Image</span>
                                     @endif</td>
-                                <td></td>
-                                <td>$</td>
-                                <td></td>
-                                <td></td>
+                                <td>{{$customer->name}}</td>
+                                <td>{{$customer->gender}}</td>
+                                <td>{{$customer->email}}</td>
+                                <td>{{$customer->dob}}</td>
                                 <td>
-                                    <a href="{{route('products.edit',$product->id)}}" class="btn btn-sm btn-outline-primary mr-1">Edit</a>
-                                    <a href="{{route('products.delete',$product->id)}}" onclick="return confirm('Are you sure delete?')" class="btn btn-sm btn-outline-danger">Delete</a>
+                                    <a href="{{route('customer.edit',$customer->id)}}" class="btn btn-sm btn-outline-primary mr-1">Edit</a>
+                                    <a href="{{route('customer.delete',$customer->id)}}" onclick="return confirm('Are you sure delete?')" class="btn btn-sm btn-outline-danger">Delete</a>
                                 </td>
                               </tr>
-                              @endforeach --}}
+                              @endforeach
 
                             </tbody>
                           </table>
                           <div class="mt-3">
-                            {{-- {{ $products->links() }} --}}
+                            {{ $customers->links() }}
                           </div>
                         </div>
                       </div>
