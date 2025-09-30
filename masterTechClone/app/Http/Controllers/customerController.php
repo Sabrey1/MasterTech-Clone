@@ -13,15 +13,16 @@ class customerController extends Controller
         ]);
     }
 
-    public function store(){
-        return "store";
-    }
-    public function create(){
-        return "create";
+        public function create(){
+        return view("Admin.Customer.CreateCustomer");
     }
     public function edit(){
         return "edit";
     }
+    public function store(){
+        $customer = Customer::create([]);
+    }
+
     public function update(){
         return "update";
     }
