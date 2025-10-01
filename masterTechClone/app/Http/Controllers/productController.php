@@ -18,7 +18,7 @@ class productController extends Controller
     }
 
     public function create(){
-        return "create";
+        return view("Admin.Product.CreateProduct");
     }
 
     public function edit(){

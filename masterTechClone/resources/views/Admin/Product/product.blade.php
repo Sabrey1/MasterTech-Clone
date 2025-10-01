@@ -45,12 +45,17 @@
                                     @else
                                         <span>No Image</span>
                                     @endif</td>
-                                <td></td>
-                                <td></td>
-
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>{{$product->name}}</td>
+                                <td>{{$product->productCategory}}</td>
+                                <td>{{$product->price}}</td>
+                                <td>{{$product->stock}}</td>
+                                <td>
+                                    @if ($product->stock > 1)
+                                        <span class="badge badge-success">Active</span>
+                                    @else
+                                        <span class="badge badge-danger">Inactive</span>
+                                    @endif
+                                </td>
                                 <td>
                                     <a href="{{route('product.edit',$product->id)}}" class="btn btn-sm btn-outline-primary mr-1">Edit</a>
                                     <a href="{{route('product.delete',$product->id)}}" onclick="return confirm('Are you sure delete?')" class="btn btn-sm btn-outline-danger">Delete</a>
