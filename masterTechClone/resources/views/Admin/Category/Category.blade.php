@@ -24,7 +24,8 @@
                                 <th>ID</th>
                                 <th>Image</th>
                                 <th>Name</th>
-                                <th>Description</th>
+                                <th></th>
+                                {{-- <th>Description</th> --}}
                                 <th>Action</th>
                               </tr>
                             </thead>
@@ -42,7 +43,8 @@
                                         <span>No Image</span>
                                     @endif</td>
                                 <td>{{$category->name}}</td>
-                                <td>{{$category->description}}</td>
+                                <td></td>
+                                {{-- <td>{{$category->description}}</td> --}}
                                 <td>
                                     <a href="{{route('productCategory.edit',$category->id)}}" class="btn btn-sm btn-outline-primary mr-1">Edit</a>
                                     <a href="{{route('productCategory.delete',$category->id)}}" onclick="return confirm('Are you sure delete?')" class="btn btn-sm btn-outline-danger">Delete</a>

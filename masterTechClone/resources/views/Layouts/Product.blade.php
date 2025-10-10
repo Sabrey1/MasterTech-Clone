@@ -1,4 +1,4 @@
-  <!--      Laptop TUF        -->
+  {{-- <!--      Laptop TUF        -->
     <h1 id="TUFGAMING">TUF GAMING</h1>
     <hr style="width: 10%; margin-left: 5%;">
 
@@ -2939,4 +2939,11 @@
                             <li>Software| Game life timetector</li>
                         </ul>
                     </div>
-            </div>
+            </div> --}}
+
+
+<div>
+    @foreach ($products as $Products)
+ 
+    @endforeach
+</div>

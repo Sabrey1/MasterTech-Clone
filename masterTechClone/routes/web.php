@@ -5,10 +5,30 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\productCategoryController;
 use App\Http\Controllers\employeeController;
 use App\Http\Controllers\productController;
+use App\Models\productCategory;
+use App\Models\Product;
+
+// Login
+Route::get('/login', function () {
+    return view('Auth.Login');
+})->name('login');
+Route::get('/register', function () {
+    return view('Auth.Register');
+})->name('register');;
+
+
 
 //User || client
+// Route::get('/', function () {
+//     return view('HomePage');
+// });
+
 Route::get('/', function () {
-    return view('HomePage');
+    // Get all categories from the database
+    $categories = productCategory::all();
+    $products = Product::all();
+    // Pass data to the view
+    return view('HomePage', compact('categories', 'products'));
 });
 
 // Admin

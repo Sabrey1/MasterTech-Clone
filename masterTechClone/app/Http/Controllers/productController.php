@@ -14,7 +14,7 @@ class productController extends Controller
     }
 
     public function store(){
-        return "store";
+       
     }
 
     public function create(){
