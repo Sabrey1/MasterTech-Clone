@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="col-md-12 grid-margin stretch-card">
+        @csrf
                 <div class="card">
                   <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center">

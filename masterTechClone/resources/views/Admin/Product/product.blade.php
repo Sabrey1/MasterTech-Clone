@@ -46,7 +46,7 @@
                                         <span>No Image</span>
                                     @endif</td>
                                 <td>{{$product->name}}</td>
-                                <td>{{$product->productCategory}}</td>
+                                <td>{{ $product->category->name }}</td>
                                 <td>{{$product->price}}</td>
                                 <td>{{$product->stock}}</td>
                                 <td>

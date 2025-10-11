@@ -22,11 +22,16 @@ class productCategoryController extends Controller
     public function store(Request $request){
         $validator = Validator::make($request->all(),[
             'name'=>'required'
-
         ]);
         if($validator->passes()){
             $categories = new productCategory();
-            $categories->image = $path ?? null;
+            if ($request->hasFile('image')) {
+                    $path = $request->file('image')->store('categories', 'public');
+                } else {
+                    $path = null;
+                }
+
+            $categories->image = $path;
             $categories->name = $request->input('name');
             $categories->description = $request->input('description');
             $categories->save();
