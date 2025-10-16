@@ -29,7 +29,7 @@ class productCategoryController extends Controller
                     $path = $request->file('image')->store('categories', 'public');
                 } else {
                     $path = null;
-                }
+            }
 
             $categories->image = $path;
             $categories->name = $request->input('name');
