@@ -8,7 +8,7 @@
                           <h2>Create Product<h2>
                           <a href="/product" class="btn btn-outline-danger btn-sm ">Back</a>
                     </div>
-                    <form class="forms-sample" id="formCreateProduct" method="PUT" enctype="multipart/form-data">
+                    <form class="forms-sample" id="formCreateProduct" action="{{route('product.update',$product->id)}}" method="POST" enctype="multipart/form-data">
                         @csrf
                       <div class="form-group">
                         <label for="name">Name</label>

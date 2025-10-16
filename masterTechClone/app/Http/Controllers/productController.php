@@ -86,7 +86,34 @@ class productController extends Controller
         return redirect()->back()->with('success','Product deleted successfully');
     }
 
-    public function update(){
-        
+    public function update(string $id, Request $request)
+{
+    $validator = Validator::make($request->all(), [
+        'name' => 'required',
+        'productCategory' => 'required|string',
+        'price' => 'required|numeric',
+        'stock' => 'required|integer',
+        'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+    ]);
+
+    if ($validator->fails()) {
+        return redirect()->back()->withErrors($validator)->withInput();
     }
+
+    $product = Product::findOrFail($id);
+
+    $product->name = $request->input('name');
+    $product->productCategory = $request->input('productCategory');
+    $product->price = $request->input('price');
+    $product->stock = $request->input('stock');
+    $product->image = $request->file('image')
+        ? $request->file('image')->store('products', 'public')
+        : $product->image;
+    $product->description = $request->input('description');
+
+    $product->save();
+
+    return redirect()->route('product')
+        ->with('success', 'Product updated successfully');
+}
 }

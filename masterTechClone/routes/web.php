@@ -51,7 +51,7 @@ Route::get('/product/edit/{id}',[productController::class,'edit'])->name('produc
 //store
 Route::post('/product/store',[productController::class,'store'])->name('product.store');
 //update
-Route::put('/product/update/{id}',[productController::class,'update'])->name('product.update');
+Route::post('/product/update/{id}',[productController::class,'update'])->name('product.update');
 
 
 // Category
