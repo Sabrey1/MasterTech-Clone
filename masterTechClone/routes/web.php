@@ -9,12 +9,12 @@ use App\Models\productCategory;
 use App\Models\Product;
 
 // Login
-Route::get('/login', function () {
-    return view('Auth.Login');
-})->name('login');
-Route::get('/register', function () {
-    return view('Auth.Register');
-})->name('register');;
+// Route::get('/login', function () {
+//     return view('Auth.Login');
+// })->name('login');
+// Route::get('/register', function () {
+//     return view('Auth.Register');
+// })->name('register');
 
 
 
